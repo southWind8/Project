@@ -1,0 +1,8 @@
+server:
+    port: 8080
+spring:
+  application:
+    name: vlog
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8

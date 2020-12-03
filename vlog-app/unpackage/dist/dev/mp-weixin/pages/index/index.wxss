@@ -1,0 +1,23 @@
+
+.container {
+	width: 700rpx;
+	padding: 10rpx 10rpx;
+}
+.cards {
+	width: 700rpx;
+	background-color: rgb(153, 158, 207);
+	padding: 20rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
+	margin-bottom: 20rpx;
+}
+.title {
+	font-size: 36rpx;
+}
+.cover {
+	width: 700rpx;
+	height: 300rpx;
+	-webkit-border-radius: 10rpx;
+	        border-radius: 10rpx;
+}
+

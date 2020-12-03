@@ -1,0 +1,1 @@
+<view class="container"><block wx:for="{{cards}}" wx:for-item="card" wx:for-index="index" wx:key="index"><view class="cards"><text class="title">{{card.title}}</text><image class="cover" src="{{card.bgImg}}"></image><text>{{card.content}}</text></view></block></view>
