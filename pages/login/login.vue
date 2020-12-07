@@ -117,16 +117,10 @@
 				if(!this.validate()) return;
 				//请求数据
 				this.$H
-					.post('./user/sendcode',
-					{
-						phone:this.phone
-					},{
-						native:true
-					}).then(res=>{
-						uni.showToast({
-							title:res.data.msg,
-							icon:'none'
-						});
+					.post('/user/sendcode?phone=' + this.phone, {
+						native: true
+					})
+					.then(res=>{
 						//倒计时
 						this.codeTime = 60;
 						let timer = setInterval(()=>{
@@ -136,7 +130,7 @@
 								this.codeTime=0;
 								clearInterval(timer)
 							}
-						},1000);
+						}, 1000);
 					});
 			},
 			//表单验证
@@ -183,12 +177,19 @@
 						//修改vuex的state.持久化存储
 						this.$store.commit('login',res);
 						//提示和跳转
-						uni.navigateBack({
-							delta:1
-						});
-						uni.showToast({
+						uni.showModal({
 							title:'登录成功',
-							icon:'none'
+							content:'去看看',
+							success:function(res){
+								if(res.confirm){
+									uni.switchTab({
+										url:'../my/my'
+									});
+								}else if(res.cancel){
+									console.log('用户点击取消');
+									return;
+								}
+							}
 						})
 					}).catch(err=>{
 						//登录失败

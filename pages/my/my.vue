@@ -1,36 +1,57 @@
 <template>
 	<view>
-		<view class="flex align-center p-2" hover-class="bg-light">
-			<image :src="avatar" style="width: 100rpx;height: 100rpx;" class="rounded-circle"></image>
-			<view class="flex flex-column flex-1 px-2">
-				<text class="font-lg font-weight-bold text-dark">{{ user.nickname }}</text>
-				<text class="font text-muted">总帖子10 今日发帖0</text>
-			</view>	
-			<text class="iconfont icon-jinru" @click="login"></text>
-		</view>
-		<view class="flex align-center px-3 py-2">
-			<view class="flex-1 flex flex-column align-center justify-center"
-				  v-for="(item, index) in myData"
-				  :key="index">
-				<text class="font-lg font-weight-bold">{{ item.num }}</text>
-				<text class="font text-muted">{{ item.name }}</text>
+		<!-- 未登录 -->
+		<template v-if="!loginStatus">
+			<view class="flex align-center p-2" hover-class="bg-light">
+				<image :src="avatar" style="width: 100rpx;height: 100rpx;" class="rounded-circle"></image>
+				<view class="flex flex-column flex-1 px-2">
+					<text class="font text-muted">登录，体验更多功能</text>
+				</view>
+				<text class="iconfont icon-jinru" @click="login"></text>
 			</view>
-		</view>
-		<view class="px-3 py-2">
-			<image src="/static/demo/banner1.jpg" 
-				   mode="aspectFill"
-				   style="height: 170rpx;width: 100%;"
-				   class="rounded"></image>
-		</view>
-		<uni-list-item title="浏览历史" showExtraIcon>
-			<text slot="icon" class="iconfont icon-liulan"></text>
-		</uni-list-item>
-		<uni-list-item title="社区认证" showExtraIcon>
-			<text slot="icon" class="iconfont icon-huiyuanvip"></text>
-		</uni-list-item>
-		<uni-list-item title="审核帖子" showExtraIcon>
-			<text slot="icon" class="iconfont icon-keyboard"></text>
-		</uni-list-item>
+			<view class="px-3 py-2">
+				<image 
+					src="/static/demo/banner1.jpg"
+					mode="aspectFill"
+					style="height: 170rpx;width: 100%;"
+					class="rounded"></image>
+			</view>
+		</template>
+		
+		<!-- 已登录 -->
+		<template v-else>
+			<view class="flex align-center p-2" hover-class="bg-light">
+				<image :src="avatar" style="width: 100rpx;height: 100rpx;" class="rounded-circle"></image>
+				<view class="flex flex-column flex-1 px-2">
+					<text class="font-lg font-weight-bold text-dark">{{ user.nickname }}</text>
+					<text class="font text-muted">总帖子{{ myData[0].num }} 今日发帖{{ myData[1].num }}</text>
+				</view>	
+				<text class="iconfont icon-jinru" @click="userSet"></text>
+			</view>
+			<view class="flex align-center px-3 py-2">
+				<view class="flex-1 flex flex-column align-center justify-center"
+					  v-for="(item, index) in myData"
+					  :key="index">
+					<text class="font-lg font-weight-bold">{{ item.num }}</text>
+					<text class="font text-muted">{{ item.name }}</text>
+				</view>
+			</view>
+			<view class="px-3 py-2">
+				<image src="/static/demo/banner1.jpg" 
+					   mode="aspectFill"
+					   style="height: 170rpx;width: 100%;"
+					   class="rounded"></image>
+			</view>
+			<uni-list-item title="浏览历史" showExtraIcon>
+				<text slot="icon" class="iconfont icon-liulan"></text>
+			</uni-list-item>
+			<uni-list-item title="社区认证" showExtraIcon>
+				<text slot="icon" class="iconfont icon-huiyuanvip"></text>
+			</uni-list-item>
+			<uni-list-item title="审核帖子" showExtraIcon>
+				<text slot="icon" class="iconfont icon-keyboard"></text>
+			</uni-list-item>
+		</template>
 	</view>
 </template>
 
@@ -78,6 +99,11 @@
 				uni.navigateTo({
 					url: '../login/login'
 				});
+			},
+			userSet() {
+				uni.navigateTo({
+					url: '../user-set/user-set'
+				})
 			}
 		}
 	};
