@@ -173,24 +173,26 @@
 					.post(url,data)
 					.then(res =>{
 						this.loading=false;
-						console.log(res);
-						//修改vuex的state.持久化存储
-						this.$store.commit('login',res);
-						//提示和跳转
-						uni.showModal({
-							title:'登录成功',
-							content:'去看看',
-							success:function(res){
-								if(res.confirm){
-									uni.switchTab({
-										url:'../my/my'
-									});
-								}else if(res.cancel){
-									console.log('用户点击取消');
-									return;
+						if(res){
+							console.log(res);
+							//修改vuex的state，持久化存储
+							this.$store.commit('login',res);
+							//提示和跳转
+							uni.showModal({
+								title:'登录成功',
+								content:'去看看',
+								success:function(res){
+									if(res.confirm){
+										uni.switchTab({
+											url:'../my/my'
+										});
+									}else if(res.cancel){
+										console.log('用户点击取消');
+										return;
+									}
 								}
-							}
-						})
+							})
+						}
 					}).catch(err=>{
 						//登录失败
 						this.loading = false;
