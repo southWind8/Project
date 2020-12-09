@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "name": "aliyun",
+      "type": "com.southwind.vlog.utils.AliyunResource",
+      "sourceType": "com.southwind.vlog.utils.AliyunResource"
+    },
+    {
+      "name": "file",
+      "type": "com.southwind.vlog.utils.FileResource",
+      "sourceType": "com.southwind.vlog.utils.FileResource"
+    }
+  ],
+  "properties": [
+    {
+      "name": "aliyun.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.southwind.vlog.utils.AliyunResource"
+    },
+    {
+      "name": "aliyun.access-key-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.southwind.vlog.utils.AliyunResource"
+    },
+    {
+      "name": "file.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.southwind.vlog.utils.FileResource"
+    },
+    {
+      "name": "file.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.southwind.vlog.utils.FileResource"
+    },
+    {
+      "name": "file.host",
+      "type": "java.lang.String",
+      "sourceType": "com.southwind.vlog.utils.FileResource"
+    },
+    {
+      "name": "file.object-name",
+      "type": "java.lang.String",
+      "sourceType": "com.southwind.vlog.utils.FileResource"
+    },
+    {
+      "name": "file.oss-host",
+      "type": "java.lang.String",
+      "sourceType": "com.southwind.vlog.utils.FileResource"
+    }
+  ],
+  "hints": []
+}

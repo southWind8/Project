@@ -21,16 +21,7 @@ public class CardController {
 
     @GetMapping(value = "cards")
     public ResponseResult getCards(){
-        List<Card> cards= DataUtil.initCards();
-        /**
-         * 枚举的用法
-         * 把结果统一给封装起来了
-         */
-        ResultCode success=ResultCode.SUCCESS;
-        return ResponseResult.builder()
-                .code(success.code())
-                .msg(success.message())
-                .data(cards)
-                .build();
+       List<Card> cards=DataUtil.initCards();
+       return ResponseResult.success(cards);
     }
 }

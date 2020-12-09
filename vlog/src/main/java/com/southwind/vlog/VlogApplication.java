@@ -1,5 +1,6 @@
 package com.southwind.vlog;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -8,8 +9,8 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 /**
  * @author 86139
  */
-@SpringBootApplication (exclude = {DataSourceAutoConfiguration.class})
-
+@SpringBootApplication
+@MapperScan("com.southwind.vlog.mapper")
 public class VlogApplication {
 
 
