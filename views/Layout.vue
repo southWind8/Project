@@ -32,6 +32,7 @@
       </v-btn>
 
       <v-spacer></v-spacer>
+      <v-avatar><v-img :src="user.avatar"></v-img></v-avatar>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
@@ -68,9 +69,20 @@
   </v-card>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
   data: () => ({
     show: true
-  })
+  }),
+  computed: {
+			...mapState({
+				loginStatus: state => state.loginStatus,
+				user: state => state.user
+			}),
+			//用户头像
+			avatar() {
+				return this.user.avatar ? this.user.avatar : '/static/defaul.jpg';
+			}
+		}
 }
 </script>

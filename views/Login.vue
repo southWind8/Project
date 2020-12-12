@@ -1,8 +1,8 @@
 <template>
     <div class="bg row">
         <v-form ref="form" v-model="valid" lazy-validation class="col" v-if="!flag">
-            <v-text-field v-model="phone" :counter="11" :rules="phoneRules" label="Phone" required></v-text-field>
-            <v-text-field v-model="password" :rules="passRules" label="Password" required></v-text-field>
+            <v-text-field v-model="phone" :counter="11" :rules="phoneRules" label="Phone" required ></v-text-field>
+            <v-text-field v-model="password" :rules="passRules" label="Password" required ></v-text-field>
             <v-row>
                 <v-col cols="12" md="8">
                     <v-text-field v-model="verifyCode" label="verifyCode" required></v-text-field>
@@ -111,7 +111,7 @@ export default {
 }
 .mask {
   background-image: linear-gradient(to right, #bf30ac 0%, #0f30ac 100%);
-  opacity: 0.45;
+  opacity: 0.7;
   z-index: 5;
 }
 </style>
