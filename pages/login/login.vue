@@ -57,6 +57,7 @@
 		<view class="flex align-center px-5 py-3">
 			<view class="flex-1 flex align-center justify-center" @click="appLogin">
 				<view class="iconfont icon-weixin bg-success font-lg text-white flex align-center justify-center rounded-circle" style="width: 100rpx; height: 100rpx;"></view>
+				
 			</view>
 			<view class="flex-1 flex align-center justify-center">
 				<view class="iconfont icon-QQ bg-primary font-lg text-white flex align-center justify-center rounded-circle" style="width: 100rpx;height: 100rpx;"></view>
