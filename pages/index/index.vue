@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view v-for="(article, index) in articles" :key="index">
-			<my-card :article="article"></my-card>
+			<my-card :article="article" @open="gotoDetail(article.id)"></my-card>
 		</view>
 	</view>
 </template>
@@ -27,6 +27,11 @@ export default {
 			loginStatus: state => state.loginStatus,
 			user: state => state.user
 		})
+	},
+	onNavigationBarButtonTap() {
+		uni.navigateTo({
+			url:'../write/write',
+		});
 	},
 	onLoad() {
 		uni.getSystemInfo({
@@ -103,11 +108,18 @@ export default {
 						uni.hideLoading();
 					}, 100);
 					//res.data.data包含了分页的很多信息，list属性才是真正的数据[]
-					console.log(res.data.data.pageSize);
-					console.log(res.data.data.total);
+					// console.log(res.data.data.pageSize);
+					// console.log(res.data.data.total);
 					this.articles = res.data.data.list
 				}
 			});
+		},
+		gotoDetail(id){
+			console.log("文章id"+id)
+			uni.navigateTo({
+				url:'../ArticleDetail/ArticleDetail?id='+id
+			});
+			
 		}
 	}
 };
